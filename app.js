@@ -4,12 +4,6 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
-var listRouter = require('./routes/list');
-var putRouter = require('./routes/put')
-var deleteRouter = require('./routes/delete')
-
 
 //Kitchen routes
 var postKitchenRouter = require('./routes/kitchen/post')
@@ -17,6 +11,14 @@ var downloadKitchenRouter = require('./routes/kitchen/download')
 var deleteKitchenRouter = require('./routes/kitchen/delete')
 var getKitchenRouter = require('./routes/kitchen/get')
 var listKitchenRouter = require('./routes/kitchen/list')
+
+//User routes
+
+var indexRouter = require('./routes/index');
+var usersRouter = require('./routes/users/users');
+var listRouter = require('./routes/users/list');
+var putRouter = require('./routes/users/put')
+var deleteRouter = require('./routes/users/delete')
 
 var app = express();
 
@@ -39,18 +41,18 @@ app.use('/', deleteRouter);
 
 //kitchen app
 
-app.use('/',postKitchenRouter)
-app.use('/',downloadKitchenRouter)
-app.use('/',deleteKitchenRouter)
-app.use('/',getKitchenRouter)
-app.use('/',listKitchenRouter)
+app.use('/', postKitchenRouter)
+app.use('/', downloadKitchenRouter)
+app.use('/', deleteKitchenRouter)
+app.use('/', getKitchenRouter)
+app.use('/', listKitchenRouter)
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   next(createError(404));
 });
 
 // error handler
-app.use(function(err, req, res, next) {
+app.use(function (err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};

@@ -3,9 +3,9 @@ var router = express.Router();
 const fs = require('fs');
 path = require('path')
 
-configFile1 = path.join(__dirname, '../users2.json')
+configFile2 = path.join(__dirname, '../../users2.json')
 
-fs.access(configFile1, fs.F_OK, (err) => {
+fs.access(configFile2, fs.F_OK, (err) => {
   if (err) {
     console.error(err)
     console.log("Users2.json does not exist!")
@@ -27,7 +27,7 @@ data.table = []
     data.table.push(user3)
     data.table.push(user4)
    // data.table.push(user5)
-fs.writeFile(configFile1, JSON.stringify(data), function (err) {
+fs.writeFile(configFile2, JSON.stringify(data), function (err) {
     if (err) throw err;
     console.log('complete 1,2,3,4');
 }
@@ -36,7 +36,7 @@ fs.writeFile(configFile1, JSON.stringify(data), function (err) {
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-  fs.readFile(configFile1, function(err, data) {
+  fs.readFile(configFile2, function(err, data) {
       if (err){
           console.log(err);
       }
