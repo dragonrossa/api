@@ -1,5 +1,7 @@
 # API-s in ExpressJS
 
+Check routes on localhost:3000 with Nodemon
+
 GET, POST, PUT, DELETE
 
 (download)
