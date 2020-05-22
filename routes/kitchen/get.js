@@ -49,7 +49,7 @@ data.table.push(kitchen14)
 
 fs.writeFile(configFile1, JSON.stringify(data), function (err) {
     if (err) throw err;
-    console.log('complete 1,2,3,4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14');
+    console.log('complete 1,2,3,4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14 - kitchen.json');
 }
 );
 

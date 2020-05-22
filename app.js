@@ -5,6 +5,10 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
 
+//Index route
+var indexRouter = require('./routes/index');
+
+
 //Kitchen routes
 var postKitchenRouter = require('./routes/kitchen/post')
 var downloadKitchenRouter = require('./routes/kitchen/download')
@@ -14,11 +18,14 @@ var listKitchenRouter = require('./routes/kitchen/list')
 
 //User routes
 
-var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users/users');
 var listRouter = require('./routes/users/list');
 var putRouter = require('./routes/users/put')
 var deleteRouter = require('./routes/users/delete')
+
+//Iphone routes
+
+var phonesRouter = require('./routes/iphone/phones')
 
 var app = express();
 
@@ -46,6 +53,13 @@ app.use('/', downloadKitchenRouter)
 app.use('/', deleteKitchenRouter)
 app.use('/', getKitchenRouter)
 app.use('/', listKitchenRouter)
+
+//iphone app
+
+app.use('/',phonesRouter)
+
+
+
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
   next(createError(404));

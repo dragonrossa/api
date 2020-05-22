@@ -29,7 +29,7 @@ data.table = []
    // data.table.push(user5)
 fs.writeFile(configFile2, JSON.stringify(data), function (err) {
     if (err) throw err;
-    console.log('complete 1,2,3,4');
+    console.log('complete 1,2,3,4 - users2.json');
 }
 );
 
