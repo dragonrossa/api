@@ -11,7 +11,7 @@ router.get('/', function (req, res, next) {
     route2: __dirname + '\\users', 
     config1: config + "/kitchen",
     config2: config + "/users",
-    config3:config + "/phones"
+    config3: config + "/phones"
     // link:"www.test.com"
 
   });
