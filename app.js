@@ -26,6 +26,7 @@ var deleteRouter = require('./routes/users/delete')
 //Iphone routes
 
 var phonesRouter = require('./routes/iphone/phones')
+var listPhonesRouter = require('./routes/iphone/list')
 
 var app = express();
 
@@ -57,6 +58,7 @@ app.use('/', listKitchenRouter)
 //iphone app
 
 app.use('/',phonesRouter)
+app.use('/',listPhonesRouter)
 
 
 
