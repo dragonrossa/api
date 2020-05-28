@@ -19,49 +19,49 @@ configFile = path.join(__dirname, '../../iphone.json'),
 
             res.writeHead(200, { 'Content-Type': 'text/plain;; charset=utf-8' });
 
-
+            
 
             for (var i = 0; i < iphone.phone.length; i++) {
-                if (req.params.id == iphone.phone[i].id) {
+                phone_json = iphone.phone[i]
+                if (req.params.id == phone_json.id) {
+                    var iphone_phone = "ID: " + phone_json.id +
+                        "\nName: " + phone_json.name +
+                        "\nReleased: " + phone_json.released +
+                        "\nWeight: " + phone_json.weight +
+                        "\nThickness: " + phone_json.thickness +
+                        "\nGuid: " + phone_json.guid +
+                        "\nOS: " + phone_json.os +
+                        "\nStorage: " + phone_json.storage +
+                        "\nSize: " + phone_json.size +
+                        "\nCamera: " + phone_json.camera +
+                        "\nMemory-Card Slot: " + phone_json.memory.card_slot +
+                        "\nMemory-Internal: " + phone_json.memory.internal +
+                        "\nBattery: " + phone_json.battery.title + "\n";
 
-                    var iphone_phone = "ID: " + iphone.phone[i].id +
-                        "\nName: " + iphone.phone[i].name +
-                        "\nReleased: " + iphone.phone[i].released +
-                        "\nWeight: " + iphone.phone[i].weight +
-                        "\nThickness: " + iphone.phone[i].thickness +
-                        "\nGuid: " + iphone.phone[i].guid +
-                        "\nOS: " + iphone.phone[i].os +
-                        "\nStorage: " + iphone.phone[i].storage +
-                        "\nSize: " + iphone.phone[i].size +
-                        "\nCamera: " + iphone.phone[i].camera +
-                        "\nMemory-Card Slot: " + iphone.phone[i].memory.card_slot +
-                        "\nMemory-Internal: " + iphone.phone[i].memory.internal +
-                        "\nBattery: " + iphone.phone[i].battery.title + "\n";
 
 
+                    var iphone_phone2 = "Speed: " + phone_json.network.Speed +
+                        "\nLaunch:\nAnnounced: " + phone_json.launch.announced +
+                        "\nStatus: " + phone_json.launch.status +
+                        "\nBody:\nDimensions: " + phone_json.body.dimension +
+                        "\nWeight: " + phone_json.body.weight +
+                        "\nBuild: " + phone_json.body.build + "\n";
 
-                    var iphone_phone2 = "Speed: " + iphone.phone[i].network.Speed +
-                        "\nLaunch:\nAnnounced: " + iphone.phone[i].launch.announced +
-                        "\nStatus: " + iphone.phone[i].launch.status +
-                        "\nBody:\nDimensions: " + iphone.phone[i].body.dimension +
-                        "\nWeight: " + iphone.phone[i].body.weight +
-                        "\nBuild: " + iphone.phone[i].body.build + "\n";
+                    console.log(phone_json.battery)
 
-                    console.log(iphone.phone[i].battery)
+                    
 
-                    phone_json = iphone.phone[i]
-
-                    var iphone_phone3 = "Display: " + iphone.phone[i].display.type +
-                        "\nSize: " + iphone.phone[i].display.size +
-                        "\nResolution: " + iphone.phone[i].display.resolution + "\n";
-                    var iphone_phone4 = "Platform: " + iphone.phone[i].platform.OS +
-                        "\nChipset: " + iphone.phone[i].platform.Chipset +
-                        "\nCPU: " + iphone.phone[i].platform.CPU +
-                        "\nGPU: " + iphone.phone[i].platform.GPU + "\n"
-                    var iphone_phone5 = "Features: " + iphone.phone[i].main_camera.features +
-                        "\nVideo: " + iphone.phone[i].main_camera.video + "\n"
-                    var iphone_phone6 = "Features: " + iphone.phone[i].selfie_camera.features +
-                        "\nVideo: " + iphone.phone[i].selfie_camera.video + "\n"
+                    var iphone_phone3 = "Display: " + phone_json.display.type +
+                        "\nSize: " + phone_json.display.size +
+                        "\nResolution: " + phone_json.display.resolution + "\n";
+                    var iphone_phone4 = "Platform: " + phone_json.platform.OS +
+                        "\nChipset: " + phone_json.platform.Chipset +
+                        "\nCPU: " + phone_json.platform.CPU +
+                        "\nGPU: " + phone_json.platform.GPU + "\n"
+                    var iphone_phone5 = "Features: " + phone_json.main_camera.features +
+                        "\nVideo: " + phone_json.main_camera.video + "\n"
+                    var iphone_phone6 = "Features: " + phone_json.selfie_camera.features +
+                        "\nVideo: " + phone_json.selfie_camera.video + "\n"
                     var iphone_phone7 = "Sound: " + phone_json.sound.loudspeaker +
                         "\nJack 3_5mm: " + phone_json.sound.jack_3_5mm +
                         "\nWLAN:" + phone_json.comms.WLAN +
@@ -95,21 +95,21 @@ configFile = path.join(__dirname, '../../iphone.json'),
             for (var i = 0; i < iphone.phone.length; i++) {
                 //Battery charging
                 res.write("Batter charging:\n")
-                for (var j = 0; j < iphone.phone[i].battery.charging.length; j++) {
+                for (var j = 0; j < phone_json.battery.charging.length; j++) {
 
                     var battery = []
-                    battery.push(iphone.phone[i].battery.charging[j].title)
+                    battery.push(phone_json.battery.charging[j].title)
                     battery.forEach(element => {
                         res.write(element + "\n")
                     });
                 }
-                if (req.params.id == iphone.phone[i].id) {
+                if (req.params.id == phone_json.id) {
                     //Technology
                     res.write("Technology:\n")
-                    for (var j = 0; j < iphone.phone[i].network.technology.length; j++) {
+                    for (var j = 0; j < phone_json.network.technology.length; j++) {
 
                         var technology = []
-                        technology.push(iphone.phone[i].network.technology[j].title);
+                        technology.push(phone_json.network.technology[j].title);
                         technology.forEach(element => {
                             res.write(element + "\n")
                         });
@@ -118,30 +118,30 @@ configFile = path.join(__dirname, '../../iphone.json'),
                 }
                 //2G Bands
                 res.write("2G Bands:\n")
-                for (var j = 0; j < iphone.phone[i].network.TwoG_bands.length; j++) {
+                for (var j = 0; j < phone_json.network.TwoG_bands.length; j++) {
 
                     var TwoG_bands = []
-                    TwoG_bands.push(iphone.phone[i].network.TwoG_bands[j].title)
+                    TwoG_bands.push(phone_json.network.TwoG_bands[j].title)
                     TwoG_bands.forEach(element => {
                         res.write(element + "\n")
                     });
                 }
                 //3G Bands
                 res.write("3G Bands:\n")
-                for (var j = 0; j < iphone.phone[i].network.ThreeG_bands.length; j++) {
+                for (var j = 0; j < phone_json.network.ThreeG_bands.length; j++) {
 
                     var ThreeG_bands = []
-                    ThreeG_bands.push(iphone.phone[i].network.ThreeG_bands[j].title)
+                    ThreeG_bands.push(phone_json.network.ThreeG_bands[j].title)
                     ThreeG_bands.forEach(element => {
                         res.write(element + "\n")
                     });
                 }
                 //4G Bands
                 res.write("4G Bands:\n")
-                for (var j = 0; j < iphone.phone[i].network.FourG_bands.length; j++) {
+                for (var j = 0; j < phone_json.network.FourG_bands.length; j++) {
 
                     var FourG_bands = []
-                    FourG_bands.push(iphone.phone[i].network.FourG_bands[j].title)
+                    FourG_bands.push(phone_json.network.FourG_bands[j].title)
                     FourG_bands.forEach(element => {
                         res.write(element + "\n")
                     });
@@ -150,9 +150,9 @@ configFile = path.join(__dirname, '../../iphone.json'),
                 res.write(iphone_phone2)
                 //SIM
                 res.write("SIM:\n")
-                for (var j = 0; j < iphone.phone[i].body.SIM.length; j++) {
+                for (var j = 0; j < phone_json.body.SIM.length; j++) {
                     var SIM = []
-                    SIM.push(iphone.phone[i].body.SIM[j].title)
+                    SIM.push(phone_json.body.SIM[j].title)
                     SIM.forEach(element => {
                         res.write(element + "\n")
                     });
@@ -162,9 +162,9 @@ configFile = path.join(__dirname, '../../iphone.json'),
 
                 //Protection
                 res.write("Protection:\n")
-                for (var j = 0; j < iphone.phone[i].display.protection.length; j++) {
+                for (var j = 0; j < phone_json.display.protection.length; j++) {
                     var protection = []
-                    protection.push(iphone.phone[i].display.protection[j].title)
+                    protection.push(phone_json.display.protection[j].title)
                     protection.forEach(element => {
                         res.write(element + "\n")
                     });
@@ -174,9 +174,9 @@ configFile = path.join(__dirname, '../../iphone.json'),
 
                 //Main camera - triple camera
                 res.write("Triple camera:\n")
-                for (var j = 0; j < iphone.phone[i].main_camera.triple.length; j++) {
+                for (var j = 0; j < phone_json.main_camera.triple.length; j++) {
                     var main_camera = []
-                    main_camera.push(iphone.phone[i].main_camera.triple[j].title)
+                    main_camera.push(phone_json.main_camera.triple[j].title)
                     main_camera.forEach(element => {
                         res.write(element + "\n")
                     });
@@ -186,9 +186,9 @@ configFile = path.join(__dirname, '../../iphone.json'),
 
                 //Selfie camera
                 res.write("Selfie camera:\n")
-                for (var j = 0; j < iphone.phone[i].selfie_camera.dual.length; j++) {
+                for (var j = 0; j < phone_json.selfie_camera.dual.length; j++) {
                     var selfie_camera = []
-                    selfie_camera.push(iphone.phone[i].selfie_camera.dual[j].title)
+                    selfie_camera.push(phone_json.selfie_camera.dual[j].title)
                     selfie_camera.forEach(element => {
                         res.write(element + "\n")
                     });
@@ -199,9 +199,9 @@ configFile = path.join(__dirname, '../../iphone.json'),
 
                 //Features - sensors
                 res.write("Features - sensors:\n")
-                for (var j = 0; j < iphone.phone[i].features.sensors.length; j++) {
+                for (var j = 0; j < phone_json.features.sensors.length; j++) {
                     var sensors = []
-                    sensors.push(iphone.phone[i].features.sensors[j].title)
+                    sensors.push(phone_json.features.sensors[j].title)
                     sensors.forEach(element => {
                         res.write(element + "\n")
                     });
@@ -210,9 +210,9 @@ configFile = path.join(__dirname, '../../iphone.json'),
                 res.write(iphone_phone8)
                 //Tests - performance
                 res.write("Tests - performance:\n")
-                for (var j = 0; j < iphone.phone[i].tests.performance.length; j++) {
+                for (var j = 0; j < phone_json.tests.performance.length; j++) {
                     var performance = []
-                    performance.push(iphone.phone[i].tests.performance[j].title)
+                    performance.push(phone_json.tests.performance[j].title)
                     performance.forEach(element => {
                         res.write(element + "\n")
                     });

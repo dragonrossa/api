@@ -1,0 +1,88 @@
+*******************
+**Database Iphone**
+*******************
+
+CREATE TABLE phone (
+ID int PRIMARY KEY,
+Name varchar(250),
+Released varchar(250),
+Weight varchar(50),
+Thickness varchar(50),
+Guid varchar(100),
+Os varchar(100),
+Storage varchar(100),
+Size varchar(50),
+Camera varchar(50),
+FOREIGN KEY MemoryID int,
+FOREIGN KEY BatteryID int,
+
+
+)
+
+CREATE TABLE memory (
+ID int PRIMARY KEY,
+CardSlot varchar(20),
+Internal varchar(250)
+)
+
+CREATE TABLE battery (
+ID int PRIMARY,
+title varchar(250),
+TalkTime varchar(250),
+MusicPlay varchar(100),
+FOREIGN KEY ChargingID int
+)
+
+CREATE TABLE charging(
+ID int PRIMARY KEY,
+title varchar(50)
+)
+
+CREATE TABLE network(
+ID int PRIMARY KEY,
+FOREIGN KEY TechnologyID int,
+FOREIGN KEY 2GBandsID int,
+FOREIGN KEY 3GBandsID int,
+Speed varchar(150)
+)
+
+CREATE TABLE Technology(
+ID int PRIMARY KEY,
+title varchar(150)
+)
+
+CREATE TABLE 2GBands(
+ID int PRIMARY KEY,
+title varchar(150)
+)
+
+CREATE TABLE 3GBands(
+ID int PRIMARY KEY,
+title varchar(150)
+)
+
+CREATE TABLE 4GBands(
+ID int PRIMARY KEY,
+title varchar(150)
+)
+
+CREATE TABLE launch (
+ID int PRIMARY KEY,
+Announced varchar(150),
+status varchar(150)
+)
+
+CREATE TABLE body (
+ID int PRIMARY KEY,
+Dimension varchar(150),
+Weight varchar(150),
+Build varchar(100),
+FOREIGN KEY SIMID int,
+
+)
+
+
+CREATE TABLE SIM(
+ID int PRIMARY KEY,
+title varchar(150)
+)

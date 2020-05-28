@@ -1,0 +1,36 @@
+// api - users
+
+CREATE TABLE users (
+id SERIAL PRIMARY KEY,
+name varchar(50),
+initials varchar(25),
+eyecolor varchar(25),
+age int,
+guid varchar(25),
+email varchar(50)
+)
+
+
+//api - kitchen
+
+CREATE TABLE kitchen(
+id SERIAL PRIMARY KEY,
+manufacturer varchar(50),
+model varchar(50),
+colorid int,
+detailsid int,
+FOREIGN KEY (colorid) REFERENCES color(id),
+FOREIGN KEY (detailsid) REFERENCES details(id),
+picture varchar(50)
+)
+
+CREATE TABLE color(
+id SERIAL PRIMARY KEY,
+type varchar(100)
+)
+
+CREATE TABLE details(
+id SERIAL PRIMARY KEY,
+description varchar(100)
+)
+

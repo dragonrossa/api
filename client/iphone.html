@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+    </head>
+<body>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+   <div ng-app="Iphone" ng-controller="IphoneList">
+      
+           <h1>List of mobile phones</h1>
+           <p ng-repeat="x in phone">
+              Id: {{ x.id }} <br>
+              Name: {{x.name}} <br>
+              Released: {{x.released}} <br>
+              Weight: {{x.weight}} <br>
+              Thickness: {{x.thickness}} <br>
+              Guid: {{x.guid}} <br>
+              Os: {{x.os}} <br>
+              Storage:{{x.storage}} <br>
+              Size: {{x.size}} <br>
+              Camera: {{x.camera}} <br>
+              Card_slot: {{x.memory.card_slot}}
+              Internal:{{x.memory.internal}} <br>
+              Title:  {{x.battery.title}} <br>
+              Charging: {{x.battery.charging}} <br>
+              Technology:  {{x.network.technology}} <br>
+              TwoG_bands: {{x.network.TwoG_bands}} <br>
+              ThreeG_bands: {{x.network.ThreeG_bands}} <br>
+              FourG_bands: {{x.network.FourG_bands}} <br>
+              Speed: {{x.network.Speed}} <br>
+              Announced: {{x.launch.announced}} <br>
+              Status: {{x.launch.status}} <br>
+              Dimension: {{x.body.dimension}} <br>
+              Weight: {{x.body.weight}} <br>
+              Build: {{x.body.build}} <br>
+              SIM: {{x.body.SIM}} <br>
+              Type: {{x.display.type}} <br>
+              Size: {{x.display.size}} <br>
+              OS:  {{x.platform.OS}} <br>
+              Chipset:  {{x.platform.Chipset}} <br>
+              CPU: {{x.platform.CPU}} <br>
+              GPU:  {{x.platform.GPU}} <br>
+              Triple: {{x.main_camera.triple}} <br>
+              Features_  {{x.main_camera.features}} <br>
+              Video:  {{x.main_camera.video}} <br>
+              Dual:  {{x.selfie_camera.dual}} <br>
+              Features: {{x.selfie_camera.features}} <br>
+              Video:  {{x.selfie_camera.video}} <br>
+              Loudspeaker:  {{x.sound.loudspeaker}} <br>
+              Jack_3_5mm:  {{x.sound.jack_3_5mm}} <br>
+              
+               <!-- {{x.network}} <br>  -->
+
+
+
+
+              
+           </p>
+
+           <p ng-repeat="y in network">
+            y.technology + <br>
+            y.technology.TwoG_bands + <br>
+      
+   </div>
+    <script src="iphoneController.js"></script>
+</body>
+</html>
