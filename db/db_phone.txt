@@ -3,86 +3,245 @@
 *******************
 
 CREATE TABLE phone (
-ID int PRIMARY KEY,
-Name varchar(250),
-Released varchar(250),
-Weight varchar(50),
-Thickness varchar(50),
-Guid varchar(100),
-Os varchar(100),
-Storage varchar(100),
-Size varchar(50),
-Camera varchar(50),
-FOREIGN KEY MemoryID int,
-FOREIGN KEY BatteryID int,
+id SERIAL PRIMARY KEY,
+name varchar(250),
+released varchar(250),
+weight varchar(50),
+thickness varchar(50),
+guid varchar(100),
+os varchar(100),
+storage varchar(100),
+size varchar(50),
+camera varchar(50),
+memoryid int,
+batteryid int,
+networkid int,
+launchid int,
+bodyid int,
+displayid int,
+platformid int,
+main_cameraid int,
+selfie_cameraid int,
+soundid int,
+commsid int,
+featuresid int,
+miscid int,
+testid int,
+FOREIGN KEY (memoryid) REFERENCES memory(id),
+FOREIGN KEY (batteryid) REFERENCES battery(id),
+FOREIGN KEY (networkid) REFERENCES network(id),
+FOREIGN KEY (launchid)REFERENCES launch(id),
+FOREIGN KEY (bodyid) REFERENCES body(id),
+FOREIGN KEY (displayid) REFERENCES display(id),
+FOREIGN KEY (platformid) REFERENCES platform(id),
+FOREIGN KEY (main_cameraid) REFERENCES main_camera(id),
+FOREIGN KEY (selfie_cameraid) REFERENCES selfie_camera(id),
+FOREIGN KEY (soundid) REFERENCES sound(id),
+FOREIGN KEY (commsid) REFERENCES comms(id),
+FOREIGN KEY (featuresid) REFERENCES features(id),
+FOREIGN KEY (miscid) REFERENCES misc(id),
+FOREIGN KEY (testid) REFERENCES test(id))
 
 
-)
+FOREIGN KEYS - network, launch, body, display, platform, memory, main_camera, selfie_camera, sound,
+comms,features,battery,misc,test
 
 CREATE TABLE memory (
-ID int PRIMARY KEY,
-CardSlot varchar(20),
-Internal varchar(250)
+id SERIAL PRIMARY KEY,
+cardslot varchar(20),
+internal varchar(250)
 )
 
 CREATE TABLE battery (
-ID int PRIMARY,
+id SERIAL PRIMARY KEY,
 title varchar(250),
-TalkTime varchar(250),
-MusicPlay varchar(100),
-FOREIGN KEY ChargingID int
+talktime varchar(250),
+musicplay varchar(100),
+chargingid int,
+FOREIGN KEY (chargingid) REFERENCES charging(id),
 )
 
 CREATE TABLE charging(
-ID int PRIMARY KEY,
+id SERIAL PRIMARY KEY,
 title varchar(50)
 )
 
 CREATE TABLE network(
-ID int PRIMARY KEY,
-FOREIGN KEY TechnologyID int,
-FOREIGN KEY 2GBandsID int,
-FOREIGN KEY 3GBandsID int,
-Speed varchar(150)
+id SERIAL PRIMARY KEY,
+technologyid int,
+twoG_bandsid int,
+threeG_bandsid int,
+fourG_bandsid int
+FOREIGN KEY (technologyid) REFERENCES technology(id),
+FOREIGN KEY (twoG_bandsid) REFERENCES twoG_bands(id),
+FOREIGN KEY (threeG_bandsid) REFERENCES threeG_bands(id),
+FOREIGN KEY (fourG_bandsid) REFERENCES fourG_bands(id),
+speed varchar(150)
 )
 
-CREATE TABLE Technology(
-ID int PRIMARY KEY,
+CREATE TABLE technology(
+id SERIAL PRIMARY KEY,
 title varchar(150)
 )
 
-CREATE TABLE 2GBands(
-ID int PRIMARY KEY,
+CREATE TABLE twoG_bands(
+id SERIAL PRIMARY KEY,
 title varchar(150)
 )
 
-CREATE TABLE 3GBands(
-ID int PRIMARY KEY,
+CREATE TABLE threeG_bands(
+id SERIAL PRIMARY KEY,
 title varchar(150)
 )
 
-CREATE TABLE 4GBands(
-ID int PRIMARY KEY,
+CREATE TABLE fourG_bands(
+id SERIAL PRIMARY KEY,
 title varchar(150)
 )
+
 
 CREATE TABLE launch (
-ID int PRIMARY KEY,
-Announced varchar(150),
+id SERIAL PRIMARY KEY,
+announced varchar(150),
 status varchar(150)
 )
 
 CREATE TABLE body (
-ID int PRIMARY KEY,
-Dimension varchar(150),
-Weight varchar(150),
-Build varchar(100),
-FOREIGN KEY SIMID int,
-
+id SERIAL PRIMARY KEY,
+dimension varchar(150),
+weight varchar(150),
+build varchar(100),
+simid int,
+FOREIGN KEY (simid) REFERENCES sim(id),
 )
 
 
-CREATE TABLE SIM(
-ID int PRIMARY KEY,
+CREATE TABLE sim(
+id SERIAL PRIMARY KEY,
 title varchar(150)
 )
+
+CREATE TABLE display(
+id SERIAL PRIMARY KEY,
+type varchar(150),
+size varchar(150),
+resolution varchar(150),
+protectionid int,
+FOREIGN KEY (protectionid) REFERENCES protection(id)
+)
+
+CREATE TABLE protection(
+id SERIAL PRIMARY KEY,
+title varchar(150)
+)
+
+
+
+CREATE platform (
+id SERIAL PRIMARY KEY,
+os varchar(100),
+chipset varchar(150),
+cpu varchar(150),
+gpu varchar(150)
+)
+
+CREATE TABLE memory (
+id SERIAL PRIMARY KEY,
+cardslot varchar(20),
+internal varchar(250)
+)
+
+CREATE TABLE maincamera(
+id SERIAL PRIMARY KEY,
+tripleid int,
+FOREIGN KEY (tripleid) REFERENCES triple(id),
+features varchar(150),
+video varchar(150)
+)
+
+CREATE TABLE triple(
+id SERIAL PRIMARY KEY,
+title varchar(150)
+)
+
+CREATE TABLE selfie_camera(
+id SERIAL PRIMARY KEY,
+dualid int,
+FOREIGN KEY (dualid) REFERENCES dual(id),
+features varchar(150),
+video varchar(150)
+)
+
+CREATE TABLE dual(
+id SERIAL PRIMARY KEY,
+title varchar(150)
+)
+
+CREATE TABLE sound(
+id SERIAL PRIMARY KEY,
+loudspeaker varchar(150),
+jack_3_5mm varchar(20)
+)
+
+CREATE TABLE comms(
+id SERIAL PRIMARY KEY,
+wlan varchar(150),
+bluetooth varchar(150),
+gps varchar(150),
+nfc varchar(150),
+radio varchar(150),
+usb varchar(150)
+)
+
+CREATE TABLE features(
+id SERIAL PRIMARY KEY,
+sensorsid int,
+FOREIGN KEY (sensorsid) REFERENCES sensors(id),
+)
+
+CREATE TABLE sensors(
+id SERIAL PRIMARY KEY,
+title varchar(150)
+)
+
+CREATE TABLE battery (
+id SERIAL PRIMARY KEY,
+title varchar(150),
+chargingid int,
+FOREIGN KEY (chargingid) REFERENCES charging(id),
+talk_time varchar(150),
+music_play varchar(150)
+)
+
+CREATE TABLE charging(
+id SERIAL PRIMARY KEY,
+title varchar(150)
+)
+
+CREATE TABLE misc (
+id SERIAL PRIMARY KEY,
+colors varchar(150),
+models varchar(150),
+sar varchar(150),
+sar_eu varchar(150),
+price varchar(100)
+)
+
+CREATE TABLE tests (
+id SERIAL PRIMARY KEY,
+performanceid int,
+FOREIGN KEY (performanceid) REFERENCES performance(id),
+display varchar(150),
+camera varchar(150),
+loudspeaker varchar(150),
+audio_quality varchar(150),
+battery_life varchar(150)
+)
+
+CREATE TABLE performance (
+id SERIAL PRIMARY KEY,
+title varchar(50)
+)
+
+
+

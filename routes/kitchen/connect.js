@@ -12,6 +12,9 @@ database = "Api_DB"
 
 //database is in docker - port 5432
 
+try {
+
+    
 pool.query('SELECT id, name, lastname FROM test1 as Result', (err, res) => {
     //console.log(err, res)
       if (err) { 
@@ -49,10 +52,15 @@ function tableColor() {
     const result = await tableColor();
     const result2 = await tableDetails();
     const result3 = await tableKitchen();
-    console.log(result);
-    console.log(result2);
-    console.log(result3);
     // expected output: 'resolved'
   }
   
   asyncCall();
+    
+} catch (error) {
+    console.log(error)
+    
+}
+finally{
+
+}
