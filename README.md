@@ -2,6 +2,39 @@
 
 Check routes on localhost:3000 with Nodemon
 
+APIs
+
+http://localhost:3000/kitchen
+
+http://localhost:3000/users
+
+http://localhost:3000/phones
+
+Client
+
+http://localhost:5000/
+
+http://localhost:5000/client/iphone
+
+http://localhost:5000/client/kitchen
+
+http://localhost:5000/client/users
+
+or
+
+http://localhost:5000/
+
+http://localhost:5000/iphone
+
+http://localhost:5000/kitchen
+
+http://localhost:5000/users
+
+When using serve
+
+
+For example
+
 GET, POST, PUT, DELETE
 
 (download)

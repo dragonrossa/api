@@ -38,26 +38,26 @@ angular.module('Iphone', [])
         $rootScope.USB = '2.0, proprietary reversible connector'
         //after BatteryController
         //Misc
-        $rootScope.colors ='Space Gray, Silver, Gold, Midnight Green (matte colors)'
-        $rootScope.models ='A2218, A2161, A2220'
-        $rootScope.SAR ='1.16 W/kg (head), 1.17 W/kg (body)'
-        $rootScope.SAR_EU ='0.95 W/kg (head), 0.99 W/kg (body)'
-        $rootScope.Price ='€ 1,159.00 / $ 1,029.99 / £ 989.00 / ₹ 117,100'
+        $rootScope.colors = 'Space Gray, Silver, Gold, Midnight Green (matte colors)'
+        $rootScope.models = 'A2218, A2161, A2220'
+        $rootScope.SAR = '1.16 W/kg (head), 1.17 W/kg (body)'
+        $rootScope.SAR_EU = '0.95 W/kg (head), 0.99 W/kg (body)'
+        $rootScope.Price = '€ 1,159.00 / $ 1,029.99 / £ 989.00 / ₹ 117,100'
 
         $rootScope.myStyle = {
             "font-weight": "bold"
         }
 
         $rootScope.myStyle2 = {
-            "color" : "white",
-            "background-color" : "cornflowerblue",
-            "font-size" : "60px",
-            "padding" : "50px"
+            "color": "white",
+            "background-color": "cornflowerblue",
+            "font-size": "60px",
+             "padding": "50px"
         }
 
         $rootScope.myBody = {
-            "padding-left" : "80px",
-            "padding-right" : "80px"
+             "padding-left": "50px",
+             "padding-right": "50px"
         }
 
 
@@ -114,15 +114,15 @@ angular.module('Iphone', [])
     }])
     .controller('BatteryController', ['$scope', function ($scope) {
         $scope.title = ['Non-removable Li-Ion 3969 mAh battery (15.04 Wh)'];
-        $scope.charging = ['Fast charging 18W, 50% in 30 min (advertised)','USB Power Delivery 2.0','Qi wireless charging' ];
+        $scope.charging = ['Fast charging 18W, 50% in 30 min (advertised)', 'USB Power Delivery 2.0', 'Qi wireless charging'];
         $scope.talk_time = ['Up to 20 h (multimedia)'];
         $scope.music_play = ['Up to 80 h'];
     }])
     .controller('TestsController', ['$scope', function ($scope) {
         $scope.performance = ['AnTuTu: 459713 (v7), 536883 (v8)',
-        'GeekBench: 13870 (v4.4), 3503 (v5.1)',
-        'GFXBench: 57fps (ES 3.1 onscreen)'];
-        $scope.display = ['Contrast ratio: Infinite (nominal)','USB Power Delivery 2.0'];
+            'GeekBench: 13870 (v4.4), 3503 (v5.1)',
+            'GFXBench: 57fps (ES 3.1 onscreen)'];
+        $scope.display = ['Contrast ratio: Infinite (nominal)', 'USB Power Delivery 2.0'];
         $scope.camera = ['Photo / Video'];
         $scope.loudspeaker = ['Voice 71dB / Noise 74dB / Ring 79dB'];
         $scope.audio_quality = ['Noise -94.3dB / Crosstalk -81.5dB'];
