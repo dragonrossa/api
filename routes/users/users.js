@@ -20,6 +20,7 @@ var user2 = { name: "Marko Maric", initials: "MM", id: "2", eyeColor: "blue", ag
 var user3 = { name: "Lovro Lovric", initials: "LL", id: "3", eyeColor: "green", age: 30, guid: "eecf8d71-0d2b-4579-a0fd-ac005525473a", email: "lovrol@gmail.com"}
 var user4 = { name: "Matej Matejic", initials: "MM", id: "4", eyeColor: "brown", age: 31, guid: "76ddeaed-3c3c-4eda-8fdd-deed23e14e2e", email: "matejm@gmail.com"}
 
+
 var data = {}
 data.table = []
     data.table.push(user1)
@@ -49,3 +50,6 @@ router.get('/', function(req, res, next) {
 });
 
 module.exports = router;
+
+
+
