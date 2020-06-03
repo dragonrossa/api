@@ -22,6 +22,7 @@ var usersRouter = require('./routes/users/users');
 var listRouter = require('./routes/users/list');
 var putRouter = require('./routes/users/put')
 var deleteRouter = require('./routes/users/delete')
+var postRouter = require('./routes/users/post')
 
 //Iphone routes
 
@@ -40,11 +41,14 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+//users app
+
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/', listRouter);
 app.use('/', putRouter);
 app.use('/', deleteRouter);
+app.use('/', postRouter);
 
 
 //kitchen app

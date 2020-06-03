@@ -6,20 +6,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
     <title>Insert new user</title>
+
 </head>
 
 <body>
 
     <div ng-app="myApp" ng-controller="formCtrl">
-        <form>
-            <h1>Insert new user</h1>
-            <p> Name: <input type="text" ng-model="name"> </p>
-            <p>Initials: <input type="text" ng-model="initials"></p>
-            <p>Eye color: <input type="text" ng-model="eyeColor"></p>
-            <p>Age: <input type="text" ng-model="age"></p>
-            <p>Guid: <input type="text" ng-model="guid"></p>
-            <p>Mail: <input type="text" ng-model="guid"></p>
+        <h1>Insert new user</h1>
+
+
+
+        <form ng-submit="submit()" name="userForm" action="http://localhost:3000/usersView" method="GET">
+            <p>Name:
+                <input type="text" ng-model="name" name="name" ng-style="myStyle" /></p>
+            Initials:
+            <input type="text" ng-model="initials" name="initials" ng-style="myStyle2" />
+            <br>
+            <p>Eye color: <input type="text" ng-model="eyeColor" name="eyeColor" ng-style="myStyle4"></p>
+            <p>Age: <input type="number" ng-model="age" name="age" ng-style="myStyle3"></p>
+            <p>Guid: <input type="text" ng-model="guid" name="guid" ng-style="myStyle5"></p>
+            <p>Mail: <input type="email" ng-model="email" name="email" ng-style="myStyle5"></p>
+            <p>{{userForm.email.$valid}}</p>
+            <input type="submit" id="submit" value="Submit" ng-style="Submit" />
+            <pre>list={{users}}</pre>
+        
         </form>
+
         <h1>You entered:</h1>
         <p> {{name}}</p>
         <p>{{initials}}</p>
@@ -27,13 +39,6 @@
         <p> {{age}}</p>
         <p>{{guid}}</p>
         <p>{{email}}</p>
-
-        <form ng-submit="submit()">
-            Enter text and hit enter:
-            <input type="text" ng-model="name" name="name" />
-            <input type="submit" id="submit" value="Submit" />
-            <pre>list={{users}}</pre>
-          </form>
 
 
     </div>

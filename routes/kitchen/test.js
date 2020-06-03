@@ -12,7 +12,7 @@ var kitchen = {
     Color4: "Bergamo",
     Color5: "WeißKristall",
     Picture: "11.jpg",
-    Description:"kuhinjske fronte  bijele boje FliederWeiß (mediapan, lak, visoki sjaj),jednobojna radna ploča crne Coro boje (iveral, mat), zidna obloga drveni dekor Altfichte (iveral, melamin, mat)",
+    Description:"kuhinjske fronte bijele boje FliederWeiß (mediapan, lak, visoki sjaj),jednobojna radna ploča crne Coro boje (iveral, mat), zidna obloga drveni dekor Altfichte (iveral, melamin, mat)",
 
 }
 
