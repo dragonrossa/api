@@ -5,6 +5,7 @@ angular.module('Index', [])
         $rootScope.iphone2 = 'http://localhost:5000/iphone'
         $rootScope.kitchen2 = 'http://localhost:5000/kitchen'
         $rootScope.users2 = 'http://localhost:5000/users'
+        $rootScope.test2 = 'http://localhost:5000/test'
 
         $rootScope.myStyle = {
             "padding": "50px",
@@ -26,4 +27,5 @@ angular.module('Index', [])
         $scope.iphone = ['Iphone']
         $scope.kitchen = ['Kitchen']
         $scope.users = ['Users']
+        $scope.test = ['Test']
     }])

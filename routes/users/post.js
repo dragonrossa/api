@@ -16,20 +16,149 @@ const pool = new Pool({
     port: 5432
 })
 
-//  router.get('/users/new/get', function (req, res) {
+//  router.get('/users/:userId/books/:bookId', function (req, res) {
+//      console.log(req.params.userId, req.params.bookId)
+//      res.send(req.params)
 
-//      res.header("Access-Control-Allow-Origin", "*");
+//  })
 
-//      console.log(req.body)
+var users = []
+var list = []
 
-//      res.send(req.body)
 
 
-// // })
 
-router.get('/usersView',function(req,res){
-    res.sendFile(path.join(__dirname, '..', '..', 'client', 'index.html'));
+router.get('/name/:name/initials/:initials/eyeColor/:eyeColor/age/:age/guid/:guid/email/:email', function (req, res) {
+    console.log(req.params.name, req.params.initials, req.params.eyeColor, req.params.age)
+    // res.render(req.params)
+
+    if (users.length > 0) {
+        users = []
+    }
+
+    users.push(req.params)
+
+    // console.log(users)
+    res.send(req.params)
+
+
 })
+
+
+
+router.get('/usersView', function (req, res) {
+    console.log("Usli smo!")
+    console.log(users)
+    console.log(users[0].name)
+    res.send(users)
+
+})
+
+
+router.get('/user',function(req,res){
+
+    try {
+
+        
+
+        function selectUser() {
+            return new Promise((resolve, reject) => {
+
+    
+                pool.query('SELECT id, name, initials, eyeColor, age, guid, email FROM users as Result', (err, res) => {
+                    //console.log(err, res)
+                    if (err) {
+                        console.log(err)
+                    }
+                    if (list.length > 0) {
+                        list = []
+                    }
+    
+                         setTimeout(() => {
+                             for(let i = 0;i<res.rows.length;i++){
+                                 console.log("ID of this user is " + res.rows[i].id + " and name of this user is " + res.rows[i].name)
+                                 list.push(res.rows)
+                                 
+                            resolve(res.rows);
+                         }
+                        }, 1000);
+
+                       // console.log(list)
+                        
+                     })
+    
+                })
+            }
+
+            async function asyncCall() {
+                console.log('calling');
+                const select = await selectUser();
+                console.log(select)
+            }
+
+            asyncCall();
+        
+    } catch (error) {
+        console.log(error)
+        
+    }
+    finally{
+        res.send(list)
+    }
+    
+
+})
+
+// if (users.length > 0) {
+//     users = []
+// }
+
+//console.log(users[0].name)
+
+// router.get('/users/name/:name/initials/:initials/eyecolor/:eyecolor/age/:age/guid/:guid/email/:email', function (req, res) {
+//     console.log(req.params.name + ", ",
+//         req.params.initials + ", ",
+//         req.params.eyeColor + ", ",
+//         req.params.age + ", ",
+//         req.params.guid + ", ",
+//         req.params.email)
+
+//     res.send(req.params)
+// })
+
+// router.get('/usersView', jsonParser, function (req, res) {
+//     res.header("Access-Control-Allow-Origin", "*");
+//     res.sendFile(path.join(__dirname, '..', '..', 'client', 'index.html'));
+//     console.log(req.params.name + ", ",
+//         req.params.initials + ", ",
+//         req.params.eyeColor + ", ",
+//         req.params.age + ", ",
+//         req.params.guid + ", ",
+//         req.params.email)
+
+//     res.send(req.params)
+// })
+
+//   router.get('/users/new/get', function (req, res) {
+
+//       res.header("Access-Control-Allow-Origin", "*");
+
+//      // res.sendFile(path.join(__dirname, '..', '..', 'client', 'usersView.html'));
+
+//       console.log(req.body)
+
+//       res.send(req.body)
+
+
+//   })
+
+// router.get('/usersView', function (req, res) {
+//     res.sendFile(path.join(__dirname, '..', '..', 'client', 'index.html'));
+// })
+
+// router.get('/usersView', function (req, res) {
+//     console.log("Get is ok")
+// })
 
 
 
@@ -39,14 +168,12 @@ router.post('/users/new/post', jsonParser, function (req, res) {
 
     res.header("Access-Control-Allow-Origin", "*");
 
-   
-
-    console.log(req.body.name)
-    console.log(req.body.initials)
-    console.log(req.body.eyeColor)
-    console.log(req.body.age)
-    console.log(req.body.guid)
-    console.log(req.body.email)
+    // console.log(req.body.name)
+    // console.log(req.body.initials)
+    // console.log(req.body.eyeColor)
+    // console.log(req.body.age)
+    // console.log(req.body.guid)
+    // console.log(req.body.email)
 
     const name = req.body.name;
     const initials = req.body.initials;
@@ -106,10 +233,11 @@ router.post('/users/new/post', jsonParser, function (req, res) {
             console.log(insert)
             const select = await selectUserID();
             console.log(select)
-            await pool.end();
-            console.log("Pool closed")
 
-            configFile = path.join(__dirname, '../../user.json')
+
+            configFile3 = path.join(__dirname, '../../client/json/user.json')
+            //  console.log(configFile3)
+
 
             var user = {
                 name: req.body.name,
@@ -127,14 +255,14 @@ router.post('/users/new/post', jsonParser, function (req, res) {
             data.table = []
             data.table.push(user)
 
-            // data.table.push(user5)
-            fs.writeFile(configFile, JSON.stringify(data), function (err) {
+
+            fs.writeFile(configFile3, JSON.stringify(data), function (err) {
                 if (err) throw err;
                 console.log('New user inserted in users.json');
             }
             );
 
-            
+
 
         }
 

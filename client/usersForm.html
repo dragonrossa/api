@@ -5,18 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
-    <title>Insert new user</title>
-
+    <title>List of users</title>
 </head>
 
 <body>
 
     <div ng-app="myApp" ng-controller="formCtrl">
-        <h1>Insert new user</h1>
+        <h1>List of users</h1>
 
-
-
-        <form ng-submit="submit()" name="userForm" action="http://localhost:3000/usersView" method="GET">
+        <form ng-submit="submit()" name="userForm">
             <p>Name:
                 <input type="text" ng-model="name" name="name" ng-style="myStyle" /></p>
             Initials:
@@ -28,10 +25,12 @@
             <p>Mail: <input type="email" ng-model="email" name="email" ng-style="myStyle5"></p>
             <p>{{userForm.email.$valid}}</p>
             <input type="submit" id="submit" value="Submit" ng-style="Submit" />
+            <p>{{myTxt}}</p>
             <pre>list={{users}}</pre>
         
         </form>
 
+    
         <h1>You entered:</h1>
         <p> {{name}}</p>
         <p>{{initials}}</p>
