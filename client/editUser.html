@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <title>Insert new user</title>
+
+</head>
+
+<body>
+
+    <div ng-app="myApp" ng-controller="formCtrl3">
+        <h1>Edit users settings</h1>
+
+        <!-- <h1>Choose a name:</h1> -->
+        <!-- <p> Name: {{name}}</p> -->
+
+        <table>
+            <tr>
+                <td ng-style="myStyle">ID Name</th>
+           
+            </tr>
+            
+            <tr ng-repeat="id in listID">
+              <td>{{id}}</td>
+              <!-- <td><a ng-href={{edit}}>Edit</a></td> -->
+              <!-- <td>Edit</td> -->
+            </tr>
+            <tr ng-repeat="id in ubaciID">
+                <!-- <td>{{id}}</td> -->
+                <td><a ng-href={{id}}>Edit</a></td>
+                <!-- <td>Edit</td> -->
+              </tr>
+
+          </table>
+
+       
+    </div>
+
+
+
+</body>
+
+</html>

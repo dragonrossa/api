@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <title>Insert new user</title>
+
+</head>
+
+<body>
+
+    <div ng-app="UserID" ng-controller="EditUserID">
+        <h1>Edit user</h1>
+
+        <!-- <h1>Choose a name:</h1> -->
+        <!-- <p> Name: {{name}}</p> -->
+
+        <table>
+            <tr>
+                <!-- <td ng-style="myStyle">ID Name</th> -->
+           
+            </tr>
+            
+            <tr ng-repeat="id in listID">
+              <!-- <td>{{id}}</td> -->
+              <!-- <td><a ng-href={{edit}}>Edit</a></td> -->
+            </tr>
+          </table>
+
+        
+        <!-- <p> Name:</p>
+        <input type="text" placeholder="{{name}}">
+        <p> Initials: </p>
+        <input type="text" placeholder="{{initials}}">
+        <p>Eye color:</p>
+        <input type="text" placeholder="{{eyeColor}}">
+        <p> Age:</p>
+        <input type="text" placeholder="{{age}}">
+        <p>Guid:</p>
+        <input type="text" placeholder="{{guid}}">
+        <p>Email:</p>
+        <input type="text" placeholder="{{email}}"> -->
+
+       
+            <h1>List of users</h1>
+    
+            <form ng-submit="submit()" name="userForm">
+                <p>Name:
+                    <input type="text" ng-model="name" name="name" ng-style="myStyle" placeholder={{}}></p>
+              <p>  Initials:
+                <input type="text" ng-model="initials" name="initials" ng-style="myStyle2" placeholder={{}} > </p>
+                <p>Eye color: <input type="text" ng-model="eyeColor" name="eyeColor" ng-style="myStyle4" placeholder={{}}></p>
+                <p>Age: <input type="number" ng-model="age" name="age" ng-style="myStyle3" placeholder={{}}></p>
+                <p>Guid: <input type="text" ng-model="guid" name="guid" ng-style="myStyle5" placeholder={{}}></p>
+                <p>Mail: <input type="email" ng-model="email" name="email" ng-style="myStyle5" placeholder={{}}></p>
+                <p>{{userForm.email.$valid}}</p>
+                <input type="submit" id="submit" value="Submit" ng-style="Submit" />
+                <p>{{myTxt}}</p>
+                <pre>list={{users}}</pre>
+            
+            </form>
+    
+        
+            <h1>You entered:</h1>
+            <p> {{name}}</p>
+            <p>{{initials}}</p>
+            <p>{{eyeColor}}</p>
+            <p> {{age}}</p>
+            <p>{{guid}}</p>
+            <p>{{email}}</p>
+    
+    
+    
+
+       
+    </div>
+
+    <script src="editUserID.js"></script>
+
+
+</body>
+
+</html>
