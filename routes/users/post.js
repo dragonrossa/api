@@ -24,8 +24,7 @@ const pool = new Pool({
 
 var users = []
 var list = []
-
-
+var userDelete = []
 
 
 router.get('/name/:name/initials/:initials/eyeColor/:eyeColor/age/:age/guid/:guid/email/:email', function (req, res) {
@@ -45,27 +44,62 @@ router.get('/name/:name/initials/:initials/eyeColor/:eyeColor/age/:age/guid/:gui
 })
 
 
+router.get('/name/:name/', function (req, res) {
+    console.log(req.params.name)
 
-router.get('/usersView', function (req, res) {
-    console.log("Usli smo!")
-    console.log(users)
-    console.log(users[0].name)
-    res.send(users)
+    var usersName = req.params.name
+    // res.render(req.params)
+
+    if (users.length > 0) {
+        userDelete = []
+    }
+
+    userDelete.push(req.params)
+
+
+    pool.query('DELETE FROM users WHERE name=$1', [usersName], (err, res) => {
+        //console.log(err, res)
+        if (err) {
+            console.log(err)
+        }
+        // if (list.length > 0) {
+        //     list = []
+        // }
+
+        console.log("User deleted")
+
+    })
+
+
+
+    // console.log(users)
+    res.send(req.params)
+
 
 })
 
 
-router.get('/user',function(req,res){
+
+router.get('/usersView', function (req, res) {
+    console.log("Usli smo!")
+    // console.log(users)
+    //  console.log(users[0].name)
+    res.send(users)
+
+
+})
+
+
+router.get('/user', function (req, res) {
 
     try {
 
-        
 
         function selectUser() {
             return new Promise((resolve, reject) => {
 
-    
-                pool.query('SELECT id, name, initials, eyeColor, age, guid, email FROM users as Result', (err, res) => {
+
+                pool.query('SELECT id, name, initials, eyeColor, age, guid, email FROM users as Result ORDER BY id ASC LIMIT 10', (err, res) => {
                     //console.log(err, res)
                     if (err) {
                         console.log(err)
@@ -73,39 +107,44 @@ router.get('/user',function(req,res){
                     if (list.length > 0) {
                         list = []
                     }
-    
-                         setTimeout(() => {
-                             for(let i = 0;i<res.rows.length;i++){
-                                 console.log("ID of this user is " + res.rows[i].id + " and name of this user is " + res.rows[i].name)
-                                 list.push(res.rows)
-                                 
-                            resolve(res.rows);
-                         }
-                        }, 1000);
 
-                       // console.log(list)
-                        
-                     })
-    
+                    for (let i = 0; i < res.rows.length; i++) {
+                        // console.log("ID of this user is " + res.rows[i].id + " and name of this user is " + res.rows[i].name)
+                        list.push(res.rows)
+                        //  resolve(res.rows);
+                    }
+
+                    setTimeout(() => {
+                        // for (let i = 0; i < res.rows.length; i++) {
+                        // console.log("ID of this user is " + res.rows[i].id + " and name of this user is " + res.rows[i].name)
+                        //  list.push(res.rows)
+                        resolve(res.rows);
+                        //}
+                    }, 1000);
+
+                    // console.log(list)
+
                 })
-            }
 
-            async function asyncCall() {
-                console.log('calling');
-                const select = await selectUser();
-                console.log(select)
-            }
+            })
+        }
 
-            asyncCall();
-        
+        async function asyncCall() {
+            console.log('calling');
+            const select = await selectUser();
+            console.log(select)
+        }
+
+        asyncCall();
+
     } catch (error) {
         console.log(error)
-        
+
     }
-    finally{
+    finally {
         res.send(list)
     }
-    
+
 
 })
 

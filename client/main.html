@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+<link rel="stylesheet" type="text/css" href="sidebar.css">
+<body ng-app="myApp" ng-style="myStyle">
+
+
+    <div ng-controller="showhidectrl">
+
+        <div ng-view>
+        </div>
+       
+          
+          <div class="main" ng-style="myStyle">
+              <h1 ng-hide="hideval">Welcome!</h1>
+              <p ng-hide="hideval"></p>
+              <p ng-hide="hideval">This is Users Single Page Application.</p>
+              <p ng-hide="hideval">Here you can write new users or review existing ones. </p>
+              <p ng-hide="hideval">Delete or update users in the list.</p>
+              <p ng-hide="hideval">There is also list with all the users.</p>
+              <p ng-hide="hideval">Created by <b>Rosana</b></p>
+          </div>
+    </div>
+
+    <script src="index4Controller.js"></script>
+</body>
+
+</html>
