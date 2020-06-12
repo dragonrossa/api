@@ -25,6 +25,7 @@ const pool = new Pool({
 var users = []
 var list = []
 var userDelete = []
+var details = []
 
 
 router.get('/name/:name/initials/:initials/eyeColor/:eyeColor/age/:age/guid/:guid/email/:email', function (req, res) {
@@ -39,8 +40,6 @@ router.get('/name/:name/initials/:initials/eyeColor/:eyeColor/age/:age/guid/:gui
 
     // console.log(users)
     res.send(req.params)
-
-
 })
 
 
@@ -78,16 +77,73 @@ router.get('/name/:name/', function (req, res) {
 
 })
 
-
-
-router.get('/usersView', function (req, res) {
+router.get('/id/:id/', async (req, res) => {
     console.log("Usli smo!")
-    // console.log(users)
-    //  console.log(users[0].name)
-    res.send(users)
+    console.log(req.params.id)
 
+    let id = req.params.id
+    let selectedUser
 
+    try {
+        selectedUser = await selectUserID(id)
+
+        console.log("selectedUser " + selectedUser)
+        // await asyncCall()
+
+    } catch (error) {
+        console.log(error)
+    }
+    finally {
+        console.log("Inserted new user in database...")
+    }
+
+    res.send(selectedUser)
 })
+
+
+async function selectUserID(id) {
+    var data = await pool.query("Select id, name, initials, eyecolor, age, guid, email from users where id=$1", [id])
+
+    return data.rows[0]
+}
+
+async function asyncCall() {
+    console.log('calling');
+    const select = await selectUserID();
+    console.log(select)
+
+    // configFile = path.join(__dirname, '../../client/json/userDetail.json')
+    //  console.log(configFile3)
+
+    var userDetail = {
+        name: name,
+        initials: initials,
+        id: id,
+        eyeColor: eyecolor,
+        age: age,
+        guid: guid,
+        email: email
+    }
+
+    if (details.length > 0) {
+        details = []
+    }
+
+    var data = {}
+    data.table = []
+    data.table.push(userDetail)
+    details.push(userDetail)
+
+    console.log(details)
+
+}
+
+router.get('/details', function (req, res) {
+    console.log(details)
+    res.send(details)
+})
+
+
 
 
 router.get('/user', function (req, res) {
@@ -147,57 +203,6 @@ router.get('/user', function (req, res) {
 
 
 })
-
-// if (users.length > 0) {
-//     users = []
-// }
-
-//console.log(users[0].name)
-
-// router.get('/users/name/:name/initials/:initials/eyecolor/:eyecolor/age/:age/guid/:guid/email/:email', function (req, res) {
-//     console.log(req.params.name + ", ",
-//         req.params.initials + ", ",
-//         req.params.eyeColor + ", ",
-//         req.params.age + ", ",
-//         req.params.guid + ", ",
-//         req.params.email)
-
-//     res.send(req.params)
-// })
-
-// router.get('/usersView', jsonParser, function (req, res) {
-//     res.header("Access-Control-Allow-Origin", "*");
-//     res.sendFile(path.join(__dirname, '..', '..', 'client', 'index.html'));
-//     console.log(req.params.name + ", ",
-//         req.params.initials + ", ",
-//         req.params.eyeColor + ", ",
-//         req.params.age + ", ",
-//         req.params.guid + ", ",
-//         req.params.email)
-
-//     res.send(req.params)
-// })
-
-//   router.get('/users/new/get', function (req, res) {
-
-//       res.header("Access-Control-Allow-Origin", "*");
-
-//      // res.sendFile(path.join(__dirname, '..', '..', 'client', 'usersView.html'));
-
-//       console.log(req.body)
-
-//       res.send(req.body)
-
-
-//   })
-
-// router.get('/usersView', function (req, res) {
-//     res.sendFile(path.join(__dirname, '..', '..', 'client', 'index.html'));
-// })
-
-// router.get('/usersView', function (req, res) {
-//     console.log("Get is ok")
-// })
 
 
 
@@ -322,6 +327,8 @@ router.post('/users/new/post', jsonParser, function (req, res) {
     res.send(req.body)
 
 })
+
+
 
 
 

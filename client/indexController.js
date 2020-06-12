@@ -22,10 +22,19 @@ app.config(function ($routeProvider) {
             templateUrl: "editUser.html",
             controller: "formCtrl3"
         })
+        .when("/userDetail/:id", {
+            templateUrl: "userDetail.html",
+            controller: "formCtrl4"
+        })
+        // .when("/test/:id", {
+        //     templateUrl: "test.html",
+        //     controller: "formCtrl4"
+        // })
         .when("/deleteUser", {
             templateUrl: "deleteUser.html",
             controller: "DeleteUserID"
         });
+        
 });
 
 
@@ -422,12 +431,13 @@ app.controller('User', function ($scope, $http) {
 
 })
 
-app.controller('formCtrl3', function ($scope, $http) {
+app.controller('formCtrl3', function ($scope, $http, $location) {
 
-    $scope.edit = 'http://localhost:5000/editUserID'
+    // $scope.edit = 'http://localhost:5000/editUserID'
 
     $scope.listID = []
     $scope.ubaciID = []
+    $scope.userName = []
 
     $http({
         method: 'GET',
@@ -449,39 +459,85 @@ app.controller('formCtrl3', function ($scope, $http) {
 
 
 
-            $scope.listID.push(data[0][i].id + " " + data[0][i].name)
-            $scope.ubaciID.push('http://localhost:3000/user/' + data[0][i].id)
+            $scope.listID.push(data[0][i].id)
+
+            $scope.userName.push(data[0][i].name)
+            //$scope.ubaciID.push('http://localhost:3000/user/' + data[0][i].id)
+
+     
             $scope.id = data[0][i].id;
             $scope.name = data[0][i].name;
 
             console.log($scope.ubaciID)
 
-            // $scope.initials = data[0][i].initials;
-            // $scope.eyeColor = data[0][i].eyecolor;
-            // $scope.age = data[0][i].age;
-            // $scope.guid = data[0][i].guid;
-            // $scope.email = data[0][i].email;
-
-
-            // console.log($scope.id)
-            // console.log($scope.listID)
-
-
-
         }
 
-        // console.log($scope.listName)
-        //  console.log($scope.ubaciID)
 
 
 
-
-        //  $route.reload();
 
     }, function errorCallback(response) {
         console.log("It's not ok")
 
     });
+
+   // $scope.DetailID = this.id
+
+
+    $scope.myFunc = function () {
+        console.log("I'm in")
+
+        console.log(this.id)
+
+        let detailID = this.id
+
+        $scope.detailID = detailID
+
+        $http({
+            method: 'GET',
+            url:  'http://localhost:3000/id/' + this.detailID
+        }).then(function successCallback(response) {
+            console.log("It's ok")
+
+            console.log($scope.detailID)
+
+            console.log(response)
+
+            //$location.path('/userDetail');
+
+
+            // console.log(response)
+
+            //         var data = response.data;
+
+
+
+            //         // for (var i = 0; i <= data.length; i++) {
+
+
+
+            //         //     $scope.listID.push(data[0][i].id + " " + data[0][i].name)
+            //         //     $scope.ubaciID.push('http://localhost:3000/user/' + data[0][i].id)
+            //         //     $scope.id = data[0][i].id;
+            //         //     $scope.name = data[0][i].name;
+
+            //         //     console.log($scope.ubaciID)
+
+            //         // }
+
+
+
+
+
+        }, function errorCallback(response) {
+            console.log("It's not ok")
+            // console.log(this.id)
+            // $location.path('/userDetail.html');
+
+            console.log(response)
+
+        });
+    };
 
 
 
@@ -505,9 +561,44 @@ app.controller('formCtrl3', function ($scope, $http) {
 
     //app.controller('formCtrl3', function ($scope, $http) {
 
-    app.controller('myCtrl5', function ($scope) {
-        $scope.names = ["Emil", "Tobias", "Linus"];
+    app.controller('formCtrl4', function ($scope, $http, $routeParams) {
+       
+
+        $scope.testID = $routeParams.id
+
+        console.log($scope.testID)
+
+        $http({
+            method: 'GET',
+            url:  'http://localhost:3000/id/' + $scope.testID
+        }).then(function successCallback(response) {
+            console.log("It's ok")
+
+            console.log($scope.testID)
+
+            console.log(response.data)
+
+            $scope.name = response.data.name
+            $scope.initials = response.data.initials
+            $scope.eyeColor = response.data.eyecolor
+            $scope.age = response.data.age
+            $scope.guid = response.data.guid
+            $scope.email = response.data.email
+            // console.log($scope.name)
+        }, function errorCallback(response) {
+            console.log("It's not ok")
+            // console.log(this.id)
+            // $location.path('/userDetail.html');
+
+            console.log(response)
+
+        });
+    
+
+
+
     }),
+
 
     app.controller('DeleteUserID', function ($scope, $http) {
 

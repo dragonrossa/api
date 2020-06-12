@@ -15,29 +15,24 @@
     <div class="main" ng-app="myApp" ng-controller="formCtrl3">
         <h1>Edit users settings</h1>
 
-        <!-- <h1>Choose a name:</h1> -->
-        <!-- <p> Name: {{name}}</p> -->
+
 
         <table>
             <tr>
-                <td ng-style="myStyle">ID Name</th>
+                <td ng-style="myStyle">ID</th>
+
+            </tr>
+
+            <table ng-init="listID; userName">
+                <tr ng-repeat="id in listID track by $index">
+                  <td>{{ id }}  {{ userName[$index] }} </td>
+                  <td> <a href="#!userDetail/{{id}}" ng-click="myFunc()" ng-model="id" name="id">Edit</a></td>
+                </tr>
+              </table>
            
-            </tr>
-            
-            <tr ng-repeat="id in listID">
-              <td>{{id}}</td>
-              <!-- <td><a ng-href={{edit}}>Edit</a></td> -->
-              <!-- <td>Edit</td> -->
-            </tr>
-            <tr ng-repeat="id in ubaciID">
-                <!-- <td>{{id}}</td> -->
-                <td><a ng-href={{id}}>Edit</a></td>
-                <!-- <td>Edit</td> -->
-              </tr>
 
-          </table>
 
-       
+
     </div>
 
 

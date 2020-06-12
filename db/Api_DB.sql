@@ -48,9 +48,13 @@ CREATE SEQUENCE color_id_seq INCREMENT 1 MINVALUE 1 MAXVALUE 2147483647 START 1 
 CREATE TABLE "public"."color" (
     "id" integer DEFAULT nextval('color_id_seq') NOT NULL,
     "type" character varying(100),
-    CONSTRAINT "color_pkey" PRIMARY KEY ("id")
+    "kitchenid" integer,
+    CONSTRAINT "color_pkey" PRIMARY KEY ("id"),
+    CONSTRAINT "color_kitchenid_fkey" FOREIGN KEY (kitchenid) REFERENCES kitchen(id) NOT DEFERRABLE
 ) WITH (oids = false);
 
+INSERT INTO "color" ("id", "type", "kitchenid") VALUES
+(1,	'Beton',	1);
 
 DROP TABLE IF EXISTS "comms";
 DROP SEQUENCE IF EXISTS comms_id_seq;
@@ -65,17 +69,6 @@ CREATE TABLE "public"."comms" (
     "radio" character varying(150),
     "usb" character varying(150),
     CONSTRAINT "comms_pkey" PRIMARY KEY ("id")
-) WITH (oids = false);
-
-
-DROP TABLE IF EXISTS "details";
-DROP SEQUENCE IF EXISTS details_id_seq;
-CREATE SEQUENCE details_id_seq INCREMENT 1 MINVALUE 1 MAXVALUE 2147483647 START 1 CACHE 1;
-
-CREATE TABLE "public"."details" (
-    "id" integer DEFAULT nextval('details_id_seq') NOT NULL,
-    "description" character varying(100),
-    CONSTRAINT "details_pkey" PRIMARY KEY ("id")
 ) WITH (oids = false);
 
 
@@ -136,14 +129,13 @@ CREATE TABLE "public"."kitchen" (
     "id" integer DEFAULT nextval('kitchen_id_seq') NOT NULL,
     "manufacturer" character varying(50),
     "model" character varying(50),
-    "colorid" integer,
-    "detailsid" integer,
     "picture" character varying(50),
-    CONSTRAINT "kitchen_pkey" PRIMARY KEY ("id"),
-    CONSTRAINT "kitchen_colorid_fkey" FOREIGN KEY (colorid) REFERENCES color(id) NOT DEFERRABLE,
-    CONSTRAINT "kitchen_detailsid_fkey" FOREIGN KEY (detailsid) REFERENCES details(id) NOT DEFERRABLE
+    "description" text,
+    CONSTRAINT "kitchen_pkey" PRIMARY KEY ("id")
 ) WITH (oids = false);
 
+INSERT INTO "kitchen" ("id", "manufacturer", "model", "picture", "description") VALUES
+(1,	'Dan Kuchen',	'LaCorte',	'11.jpg',	'kuhinjske fronte  bijele boje FliederWeiß (mediapan, lak, visoki sjaj),jednobojna radna ploča crne Coro boje (iveral, mat), zidna obloga drveni dekor Altfichte (iveral, melamin, mat)');
 
 DROP TABLE IF EXISTS "launch";
 DROP SEQUENCE IF EXISTS launch_id_seq;
@@ -434,5 +426,9 @@ CREATE TABLE "public"."users" (
     CONSTRAINT "users_pkey" PRIMARY KEY ("id")
 ) WITH (oids = false);
 
+INSERT INTO "users" ("id", "name", "initials", "eyecolor", "age", "guid", "email") VALUES
+(183,	'Marko Maric',	'MM',	'blue',	28,	'a6f3177f-dfed-4129-86d0',	'markom@gmail.com'),
+(185,	'Matej Matejic',	'MM',	'brown',	31,	'76ddeaed-3c3c-4eda-8fdd',	'matejm@gmail.com'),
+(186,	'Marija',	'Maric',	'blue',	25,	'abcd-456-trefd',	'marija.maric@gmail.com');
 
--- 2020-06-01 09:14:16.571878+00
+-- 2020-06-12 18:50:00.318901+00
