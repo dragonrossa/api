@@ -14,10 +14,10 @@ app.config(function ($routeProvider) {
             templateUrl: "usersForm.html",
             controller: "formCtrl"
         })
-        // .when("/usersView", {
-        //     templateUrl: "usersView.html",
-        //     controller: "formCtrl2"
-        // })
+        .when("/usersView", {
+            templateUrl: "usersView.html",
+            controller: "formCtrl2"
+        })
         .when("/editUser", {
             templateUrl: "editUser.html",
             controller: "formCtrl3"
@@ -33,6 +33,10 @@ app.config(function ($routeProvider) {
         .when("/deleteUser", {
             templateUrl: "deleteUser.html",
             controller: "DeleteUserID"
+        })
+        .when("/statistic", {
+            templateUrl: "statistic.html",
+            controller: "getStatistic"
         });
 
 });
@@ -238,91 +242,91 @@ app.controller('formCtrl', function ($scope, $http, $location) {
 
 });
 
-// app.controller('formCtrl2', function ($scope, $http) {
+app.controller('formCtrl2', function ($scope, $http) {
 
 
 
-//     $http({
-//         method: 'GET',
-//         url: 'http://localhost:3000/usersView'
-//     }).then(function successCallback(response) {
-//         console.log("It's ok")
-//         console.log(response)
+    $http({
+        method: 'GET',
+        url: 'http://localhost:3000/usersView'
+    }).then(function successCallback(response) {
+        console.log("It's ok")
+        console.log(response)
 
-//         var data = response.data;
+        var data = response.data;
 
-//         console.log(data)
+        console.log(data)
 
-//         console.log(data[0].name)
+        console.log(data[0].name)
 
-//         $scope.name = data[0].name
-//         $scope.initials = data[0].initials
-//         $scope.eyeColor = data[0].eyeColor
-//         $scope.age = data[0].age
-//         $scope.guid = data[0].guid
-//         $scope.email = data[0].email
+        $scope.name = data[0].name
+        $scope.initials = data[0].initials
+        $scope.eyeColor = data[0].eyeColor
+        $scope.age = data[0].age
+        $scope.guid = data[0].guid
+        $scope.email = data[0].email
 
-//         //$scope.user = this.name;
+        //$scope.user = this.name;
 
-//         //  $scope.age = response.age
-
-
-//     }, function errorCallback(response) {
-//         console.log("It's not ok")
-
-//     });
+        //  $scope.age = response.age
 
 
-//     // $http.get('/json/user.json').then(function (response) {
-//     //     $scope.user = response.data.table;
-//     //     $scope.name = $scope.user[0].name;
-//     //     $scope.initials = $scope.user[0].initials;
-//     //     $scope.eyeColor = $scope.user[0].eyeColor;
-//     //     $scope.age = $scope.user[0].age;
-//     //     $scope.guid = $scope.user[0].guid;
-//     //     $scope.email = $scope.user[0].email;
-//     //     //    $scope.initFirst();
+    }, function errorCallback(response) {
+        console.log("It's not ok")
 
-//     // })
-
-//     //   $http.get('http://localhost:3000/usersView').then(function (response) {
-//     //      console("Ide")
-
-//     // $scope.name = "Rosana"
-
-//     // $scope.data = dataService.dataObj;
+    });
 
 
-//     //   })
+    //     // $http.get('/json/user.json').then(function (response) {
+    //     //     $scope.user = response.data.table;
+    //     //     $scope.name = $scope.user[0].name;
+    //     //     $scope.initials = $scope.user[0].initials;
+    //     //     $scope.eyeColor = $scope.user[0].eyeColor;
+    //     //     $scope.age = $scope.user[0].age;
+    //     //     $scope.guid = $scope.user[0].guid;
+    //     //     $scope.email = $scope.user[0].email;
+    //     //     //    $scope.initFirst();
 
-//     $scope.myStyleForm = {
-//         "margin-left": "20px"
-//     };
+    //     // })
 
-//     $scope.myStyle = {
-//         "margin-left": "30px"
-//     };
-//     $scope.myStyle2 = {
-//         "margin-left": "25px"
-//     };
+    //     //   $http.get('http://localhost:3000/usersView').then(function (response) {
+    //     //      console("Ide")
 
-//     $scope.myStyle3 = {
-//         "margin-left": "45px"
-//     };
+    //     // $scope.name = "Rosana"
 
-//     $scope.myStyle4 = {
-//         "margin-left": "10px"
-//     };
+    //     // $scope.data = dataService.dataObj;
 
-//     $scope.myStyle5 = {
-//         "margin-left": "40px"
-//     };
 
-//     $scope.Submit = {
-//         "margin-left": "80px"
-//     };
+    //     //   })
 
-// });
+    //     $scope.myStyleForm = {
+    //         "margin-left": "20px"
+    //     };
+
+    //     $scope.myStyle = {
+    //         "margin-left": "30px"
+    //     };
+    //     $scope.myStyle2 = {
+    //         "margin-left": "25px"
+    //     };
+
+    //     $scope.myStyle3 = {
+    //         "margin-left": "45px"
+    //     };
+
+    //     $scope.myStyle4 = {
+    //         "margin-left": "10px"
+    //     };
+
+    //     $scope.myStyle5 = {
+    //         "margin-left": "40px"
+    //     };
+
+    //     $scope.Submit = {
+    //         "margin-left": "80px"
+    //     };
+
+});
 
 //  angular.module('Index', [])
 app.controller('IndexList', ['$scope', '$rootScope', function ($scope, $rootScope) {
@@ -599,10 +603,10 @@ app.controller('formCtrl3', function ($scope, $http, $location) {
             $scope.email = response.data.email
 
             data.name = $scope.name
-            data.initials =  $scope.initials
-            data.eyeColor =  $scope.eyeColor
+            data.initials = $scope.initials
+            data.eyeColor = $scope.eyeColor
             data.age = $scope.age
-            data.guid =  $scope.guid
+            data.guid = $scope.guid
             data.email = $scope.email
             // console.log($scope.name)
         }, function errorCallback(response) {
@@ -619,7 +623,7 @@ app.controller('formCtrl3', function ($scope, $http, $location) {
                 $scope.myTxt = "Changing existing user in database!";
                 alert("User updated! Please refresh the page.");
                 $scope.users.push(data);
-                
+
                 console.log(JSON.stringify(data))
 
                 $scope.formData = {};
@@ -630,7 +634,7 @@ app.controller('formCtrl3', function ($scope, $http, $location) {
 
                 $http({
                     method: 'GET',
-                    url: 'http://localhost:3000/change/id/'+$scope.testID+'/name/' + this.name + '/initials/' + this.initials + '/eyeColor/' + this.eyeColor + '/age/' + this.age + '/guid/' + this.guid + '/email/' + this.email,
+                    url: 'http://localhost:3000/change/id/' + $scope.testID + '/name/' + this.name + '/initials/' + this.initials + '/eyeColor/' + this.eyeColor + '/age/' + this.age + '/guid/' + this.guid + '/email/' + this.email,
                 }).then(function successCallback(response) {
                     console.log("It's ok")
                     console.log(response)
@@ -716,6 +720,54 @@ app.controller('formCtrl3', function ($scope, $http, $location) {
             "padding-left": "20px"
         }
 
+
+    }),
+
+    app.controller('getStatistic', function ($scope, $http) {
+
+
+
+        $http({
+            method: 'GET',
+            url: 'http://localhost:3000/minage'
+        }).then(function successCallback(response) {
+            console.log("It's ok")
+            console.log(response)
+            var data = response.data;
+
+            console.log(data)
+
+            $scope.name1 = data
+
+            
+
+        }, function errorCallback(response) {
+            console.log("It's not ok")
+
+        });
+
+
+        $http({
+            method: 'GET',
+            url: 'http://localhost:3000/maxage'
+        }).then(function successCallback(response) {
+            console.log("It's ok")
+            console.log(response)
+            var data = response.data;
+
+            console.log(data)
+
+            $scope.name2 = data
+
+            
+
+        }, function errorCallback(response) {
+            console.log("It's not ok")
+
+        });
+
+
+        
 
     })
 

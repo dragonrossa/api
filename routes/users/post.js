@@ -8,11 +8,19 @@ var jsonParser = bodyParser.json()
 var cors = require('cors')
 router.use(cors())
 
+// const pool = new Pool({
+//     user: 'rosana',
+//     host: 'localhost',
+//     database: 'Api_DB',
+//     password: 'testing4546.',
+//     port: 5432
+// })
+
 const pool = new Pool({
-    user: 'rosana',
+    user: 'postgres',
     host: 'localhost',
-    database: 'Api_DB',
-    password: 'testing4546.',
+    database: 'postgres',
+    password: '1D3d+891s',
     port: 5432
 })
 
@@ -28,6 +36,7 @@ var users = []
 var list = []
 var userDelete = []
 var details = []
+
 
 
 router.get('/name/:name/initials/:initials/eyeColor/:eyeColor/age/:age/guid/:guid/email/:email', function (req, res) {
@@ -216,7 +225,7 @@ router.get('/change/id/:id/name/:name/initials/:initials/eyeColor/:eyeColor/age/
     console.log(req.params.id, req.params.name, req.params.initials, req.params.eyeColor, req.params.age, req.params.guid, req.params.email)
 
     pool.query("UPDATE users SET name = $1, initials = $2, eyeColor = $3, age = $4, guid=$5, email = $6 WHERE id = $7;", [req.params.name, req.params.initials, req.params.eyeColor, req.params.age, req.params.guid, req.params.email, req.params.id], (err, res) => {
-        //console.log(err, res)
+        console.log(err, res)
         if (err) {
             console.log(err)
 
@@ -231,6 +240,79 @@ router.get('/change/id/:id/name/:name/initials/:initials/eyeColor/:eyeColor/age/
     res.send(req.params)
 
 
+})
+
+var nameList
+
+router.get('/minage', function (req, res) {
+
+    res.header("Access-Control-Allow-Origin", "*");
+    //select name from users where age = (select min(age) from users)
+
+
+    try {
+
+        pool.query("Select name from users where age = (select min(age) from users)", (err, res) => {
+            console.log(err, res)
+            if (err) {
+                console.log(err)
+
+            }
+
+           
+             else {
+                 console.log("Younger user selected!")
+                 console.log(res.rows[0].name)
+                 nameList = res.rows[0].name
+                 return nameList;
+             }
+
+        })
+
+    } catch (error) {
+        console.log(error)
+    }
+    finally {
+        res.send(nameList)
+    }
+   
+})
+
+
+var maxNameList
+
+router.get('/maxage', function (req, res) {
+
+    res.header("Access-Control-Allow-Origin", "*");
+    //select name from users where age = (select min(age) from users)
+
+
+    try {
+
+        pool.query("Select name from users where age = (select max(age) from users)", (err, res) => {
+            console.log(err, res)
+            if (err) {
+                console.log(err)
+
+            }
+
+           
+             else {
+                 console.log("Oldest user selected!")
+                 console.log(res.rows[0].name)
+                 maxNameList = res.rows[0].name
+                 return maxNameList;
+             }
+
+        })
+
+    } catch (error) {
+        console.log(error)
+    }
+    finally {
+        res.send(maxNameList)
+    }
+   
 })
 
 
