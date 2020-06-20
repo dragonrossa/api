@@ -16,6 +16,8 @@ const pool = new Pool({
     port: 5432
 })
 
+
+
 //  router.get('/users/:userId/books/:bookId', function (req, res) {
 //      console.log(req.params.userId, req.params.bookId)
 //      res.send(req.params)
@@ -207,6 +209,30 @@ router.get('/user', function (req, res) {
 
 
 //insert new user in Users table
+
+
+router.get('/change/id/:id/name/:name/initials/:initials/eyeColor/:eyeColor/age/:age/guid/:guid/email/:email', function (req, res) {
+
+    console.log(req.params.id, req.params.name, req.params.initials, req.params.eyeColor, req.params.age, req.params.guid, req.params.email)
+
+    pool.query("UPDATE users SET name = $1, initials = $2, eyeColor = $3, age = $4, guid=$5, email = $6 WHERE id = $7;", [req.params.name, req.params.initials, req.params.eyeColor, req.params.age, req.params.guid, req.params.email, req.params.id], (err, res) => {
+        //console.log(err, res)
+        if (err) {
+            console.log(err)
+
+        }
+
+        else {
+            console.log("User updated successfully")
+        }
+
+    })
+
+    res.send(req.params)
+
+
+})
+
 
 router.post('/users/new/post', jsonParser, function (req, res) {
 
