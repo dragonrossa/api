@@ -1,0 +1,560 @@
+{
+    "table": [
+        {
+            "id": 1,
+            "manufacturer": "Dan Kuchen",
+            "model": "Granada",
+            "color": {
+                "color": [
+                    {
+                        "id": "1",
+                        "type": "FliederWeiss"
+                    },
+                    {
+                        "id": "2",
+                        "type": "Bergamo"
+                    }
+                ]
+            },
+            "detail": {
+                "detail": [
+                    {
+                        "id": "1",
+                        "description":"kuhinjske fronte bijele boje FliederWeiß (mediapan, lak, visoki sjaj)"
+                    },
+                    {
+                        "id": "2",
+                        "description":"viseći elementi bijele boje DanKuchen PREMIUM (stakleni elementi)"
+                    },
+                    {
+                        "id": "3",
+                        "description":"fronte na kuhinjskom otoku drveni derkor Bergamo (iveral, melamin, mat)"
+                    },
+                    {
+                        "id": "4",
+                        "description":"otvorene police bijele boje FliederWeiß (mediapan, lak, visoki sjaj)"
+                    },
+                    {
+                        "id": "5",
+                        "description":"radne ploče na kuhinji bijele boje KristalWeiß (iveral, mat)"
+                    },
+                    {
+                        "id": "6",
+                        "description":"ploča šanka drveni dekor Bergamo (iveral, melamin, mat)"
+                    },
+                    {
+                        "id": "7",
+                        "description":"zidna obloga na kuhinji drveni dekor Bergamo (iveral, melamin, mat)"
+                    }
+                ]
+            },
+            "picture": "1.jpg"
+        },
+        {
+            "id": 2,
+            "manufacturer": "Dan Kuchen",
+            "model": "Granada",
+            "color": {
+                "color": [
+                    {
+                        "id": "1",
+                        "type": "FliederWeiß"
+                    },
+                    {
+                        "id": "2",
+                        "type": "WeißKristall"
+                    },
+                    {
+                        "id": "3",
+                        "type": "Altfichte"
+                    }
+                ]
+            },
+            "detail": {
+                "detail": [
+                    {
+                        "id": "1",
+                        "description":"kuhinjske fronte bijele boje FliederWeiß (mediapan, lak, visoki sjaj)"
+                    },
+                    {
+                        "id": "2",
+                        "description":"kuhinjska radna ploča bijele boje WeißKristall (iveral, mat)"
+                    },
+                    {
+                        "id": "3",
+                        "description":"dekoracija dekor drvetra Altfichte (iveral, melamin, mat)"
+                    }
+                ]
+            },
+            "picture": "2.jpg"
+        },
+        {
+            "id": 3,
+            "manufacturer": "Dan Kuchen",
+            "model": "Silbermond",
+            "color": {
+                "color": [
+                    {
+                        "id": "1",
+                        "type": "FliederWeiss"
+                    },
+                    {
+                        "id": "2",
+                        "type": "Bergamo"
+                    },
+                    {
+                        "id": "3",
+                        "type": "Cerros"
+                    }
+                ]
+            },
+            "detail": {
+                "detail": [
+                    {
+                        "id": "1",
+                        "description":"kuhinjske fronte na glavnoj liniji kuhinje bijele boje FliederWeiß (mediapan, lak, visoki sjaj)"
+                    },
+                    {
+                        "id": "2",
+                        "description":"kuhinjske fronte na kuhinjskom otoku drveni dekor Bergamo (iveral, melamin, mat)"
+                    },
+                    {
+                        "id": "3",
+                        "description":"viseći elementi i police sive boje Cerros (stakleni elementi, police iveral, melamin, mat)"
+                    },
+                    {
+                        "id": "4",
+                        "description":"radne ploče na kuhinji i otoku sive boje Granith Anthrazit (iveral, mat)"
+                    },
+                    {
+                        "id": "5",
+                        "description":"zidna obloga na kuhinji drveni dekor Bergamo (iveral, melamin, mat)"
+                    }
+                ]
+            },
+            "picture": "3.jpg"
+        },
+        {
+            "id": 4,
+            "manufacturer": "Dan Kuchen",
+            "model": "Silbermond",
+            "color": {
+                "color": [
+                    {
+                        "id": "1",
+                        "type": "Kashmir"
+                    },
+                    {
+                        "id": "2",
+                        "type": "Bergamo"
+                    },
+                    {
+                        "id": "3",
+                        "type": "Glasrckwand"
+                    }
+                ]
+            },
+            "detail": {
+                "detail": [
+                    {
+                        "id": "1",
+                        "description":"svijetlo smeđea boja Kashmir (mediapan, lak, visoki sjaj)"
+                    },
+                    {
+                        "id": "2",
+                        "description":"tamno siva boja Cerros (mediapan, lak, matt)"
+                    },
+                    {
+                        "id": "3",
+                        "description":"staklena radna ploča Glasrckwand (nije u standardnoj DanKuchen ponudi)"
+                    }
+                ]
+            },
+            "picture": "4.jpg"
+        },
+        {
+            "id": 5,
+            "manufacturer": "Dan Kuchen",
+            "model": "Silbermond",
+            "color": {
+                "color": [
+                    {
+                        "id": "1",
+                        "type": "Fliederweiss"
+                    },
+                    {
+                        "id": "2",
+                        "type": "Safran"
+                    }
+                ]
+            },
+            "detail": {
+                "detail": [
+                    {
+                        "id": "1",
+                        "description":"bijela boja FliederWeiß (mediapan, lak, visoki sjaj)"
+                    },
+                    {
+                        "id": "2",
+                        "description":"okier žuta Safran (iveral, melamin, mat)"
+                    },
+                    {
+                        "id": "3",
+                        "description":"kamena radna ploča (nije u standardnoj DanKuchen ponudi)"
+                    }
+                ]
+            },
+            "picture": "5.jpg"
+        },
+        {
+            "id": 6,
+            "manufacturer": "Dan Kuchen",
+            "model": "Silbermond",
+            "color": {
+                "color": [
+                    {
+                        "id": "1",
+                        "type": "Jasmin"
+                    },
+                    {
+                        "id": "2",
+                        "type": "Cerros"
+                    }
+                ]
+            },
+            "detail": {
+                "detail": [
+                    {
+                        "id": "1",
+                        "description":"bež boja Jasmin (mediapan, lak, visoki sjaj)"
+                    },
+                    {
+                        "id": "2",
+                        "description":"tamno siva boja Cerros (mediapan, lak, matt)"
+                    },
+                    {
+                        "id": "3",
+                        "description":"radna ploča Cerros (iveral)"
+                    }
+                ]
+            },
+            "picture": "6.jpg"
+        },
+        {
+            "id": 7,
+            "manufacturer": "Dan Kuchen",
+            "model": "Silbermond",
+            "color": {
+                "color": [
+                    {
+                        "id": "1",
+                        "type": "Fliederweiss"
+                    },
+                    {
+                        "id": "2",
+                        "type": "MarmorGrau"
+                    }
+                ]
+            },
+            "detail": {
+                "detail": [
+                    {
+                        "id": "1",
+                        "description":"bijela boja Fliederweiss (mediapan, lak, visoki sjaj)"
+                    },
+                    {
+                        "id": "2",
+                        "description":"radna ploča MarmorGrau (iveral)"
+                    }
+                ]
+            },
+            "picture": "7.jpg"
+        },
+        {
+            "id": 8,
+            "manufacturer": "Dan Kuchen",
+            "model": "Toplux",
+            "color": {
+                "color": [
+                    {
+                        "id": "1",
+                        "type": "Fliederweiss"
+                    },
+                    {
+                        "id": "2",
+                        "type": "Ulme"
+                    }
+                ]
+            },
+            "detail": {
+                "detail": [
+                    {
+                        "id": "1",
+                        "description":"kuhinjske fronta bijele boje FliederWeiß (mediapan, lak, visoki sjaj)"
+                    },
+                    {
+                        "id": "2",
+                        "description":"radna ploča i ostala dekoracija izvedena u dekoru drveta Ulme (iveral, melamin, mat)"
+                    },
+                    {
+                        "id": "3",
+                        "description":"boja ručkice korištena na kuhinje je mat aluminij"
+                    }
+                ]
+            },
+            "picture": "8.jpg"
+        },
+        {
+            "id": 9,
+            "manufacturer": "Dan Kuchen",
+            "model": "Toplux",
+            "color": {
+                "color": [
+                    {
+                        "id": "1",
+                        "type": "American Walnuss"
+                    },
+                    {
+                        "id": "2",
+                        "type": "FliederWeiss"
+                    },
+                    {
+                        "id": "3",
+                        "type": "WeißKristall"
+                    }
+                ]
+            },
+            "detail": {
+                "detail": [
+                    {
+                        "id": "1",
+                        "description":"kuhinjske fronte bijele boje FliederWeiß (mediapan, lak, visoki sjaj)"
+                    },
+                    {
+                        "id": "2",
+                        "description":"kuhinjske fronte drveni dekor American Walnuss (iveral, melamin, mat)"
+                    },
+                    {
+                        "id": "3",
+                        "description":"radna ploča i ostala dekoracija bijele boje WeißKristall (iveral, melamin, mat)"
+                    },
+                    {
+                        "id": "4",
+                        "description":"boja ručkica korištena na kuhinje je krom visoki sjaj"
+                    }
+                ]
+            },
+            "picture": "9.jpg"
+        },
+        {
+            "id": 10,
+            "manufacturer": "Dan Kuchen",
+            "model": "Toplux",
+            "color": {
+                "color": [
+                    {
+                        "id": "1",
+                        "type": "FliederWeiss"
+                    },
+                    {
+                        "id": "2",
+                        "type": "American Walnuss"
+                    },
+                    {
+                        "id": "3",
+                        "type": "Schwarz"
+                    }
+                ]
+            },
+            "detail": {
+                "detail": [
+                    {
+                        "id": "1",
+                        "description":"kuhinjske fronte bijele boje FliederWeiß (mediapan, lak, visoki sjaj)"
+                    },
+                    {
+                        "id": "2",
+                        "description":"kuhinjske fronte drveni dekor American Walnuss (iveral, melamin, mat)"
+                    },
+                    {
+                        "id": "3",
+                        "description":"radna ploča i ostala dekoracija bijele boje WeißKristall (iveral, melamin, mat)"
+                    },
+                    {
+                        "id": "4",
+                        "description":"boja ručkica korištena na kuhinje je krom visoki sjaj"
+                    }
+                ]
+            },
+            "picture": "10.jpg"
+        },
+        {
+            "id": 11,
+            "manufacturer": "Dan Kuchen",
+            "model": "LaCorte",
+            "color": {
+                "color": [
+                    {
+                        "id": "1",
+                        "type": "Beton"
+                    },
+                    {
+                        "id": "2",
+                        "type": "FliederWeiss"
+                    },
+                    {
+                        "id": "3",
+                        "type": "Cerros"
+                    },
+                    {
+                        "id": "4",
+                        "type": "Bergamo"
+                    },
+                    {
+                        "id": "5",
+                        "type": "WeissKristall"
+                    }
+                ]
+            },
+            "detail": {
+                "detail": [
+                    {
+                        "id": "1",
+                        "description":"kuhinjske fronte na kuhinji dekor kamena Beton (iveral, melamin, mat)"
+                    },
+                    {
+                        "id": "2",
+                        "description":"kuhinjske fronte na otoku bijele boje FliederWeiß (mediapan, lak, visoki sjaj)"
+                    },
+                    {
+                        "id": "3",
+                        "description":"okvir oko kuhinje na zidu tamon sive boje Cerros (iveral, melamin, mat)"
+                    },
+                    {
+                        "id": "4",
+                        "description":"radna ploča i zidna obloga drvenog dekora Bergamo (iveral, melamin, mat)"
+                    },
+                    {
+                        "id": "5",
+                        "description":"radna ploča i bočne stranice na otoku bijele boje WeißKristall (iveral, melamin, mat)"
+                    }
+                ]
+            },
+            "picture": "11.jpg"
+        },
+        {
+            "id": 12,
+            "manufacturer": "Dan Kuchen",
+            "model": "LaCorte",
+            "color": {
+                "color": [
+                    {
+                        "id": "1",
+                        "type": "FliederWeiss"
+                    },
+                    {
+                        "id": "2",
+                        "type": "Coro"
+                    },
+                    {
+                        "id": "3",
+                        "type": "Altfichte"
+                    }
+                ]
+            },
+            "detail": {
+                "detail": [
+                    {
+                        "id": "1",
+                        "description":"kuhinjske fronte  bijele boje FliederWeiß (mediapan, lak, visoki sjaj)"
+                    },
+                    {
+                        "id": "2",
+                        "description":"jednobojna radna ploča crne Coro boje (iveral, mat)"
+                    },
+                    {
+                        "id": "3",
+                        "description":"zidna obloga drveni dekor Altfichte (iveral, melamin, mat)"
+                    }
+                ]
+            },
+            "picture": "12.jpg"
+        },
+        {
+            "id": 13,
+            "manufacturer": "Dan Kuchen",
+            "model": "LaCorte",
+            "color": {
+                "color": [
+                    {
+                        "id": "1",
+                        "type": "Beton"
+                    },
+                    {
+                        "id": "2",
+                        "type": "Bergamo"
+                    }
+                ]
+            },
+            "detail": {
+                "detail": [
+                    {
+                        "id": "1",
+                        "description":"kuhinjske fronte dekor kamena Beton (iveral, melamin, mat)"
+                    },
+                    {
+                        "id": "2",
+                        "description":"radna ploča i zidna obloga drvenog dekora Bergamo (iveral, melamin, mat)"                        
+                    }
+                ]
+            },
+            "picture": "13.jpg"
+        },
+        {
+            "id": 14,
+            "manufacturer": "Dan Kuchen",
+            "model": "LaCorte",
+            "color": {
+                "color": [
+                    {
+                        "id": "1",
+                        "type": "Cerros"
+                    },
+                    {
+                        "id": "2",
+                        "type": "FliederWeiss"
+                    },
+                    {
+                        "id": "3",
+                        "type": "Safran"
+                    }
+                ]
+            },
+            "detail": {
+                "detail": [
+                    {
+                        "id": "1",
+                        "description":"kuhinjske fronte na otoku bijele boje FliederWeiß (mediapan, lak, visoki sjaj)"
+                    },
+                    {
+                        "id": "2",
+                        "description":"kuhinjske fronte na otoku tamno sive boje Cerros (lak, mat)"                                              
+                    },
+                    {
+                        "id": "3",
+                        "description":"radna ploča i bočne stranice na otoku WeißKristall (iveral, melamin, mat)"                                              
+                    },
+                    {
+                        "id": "4",
+                        "description":"konstrukcija visokog stola u dekoru drveta Canaris (nije u standardnoj DanKuchen ponudi)"                                              
+                    },
+                    {
+                        "id": "5",
+                        "description":"detalji žute boje Safran (iveral, melamin, mat)"                                              
+                    }
+                ]
+            },
+            "picture": "14.jpg"
+        }
+    ]
+}

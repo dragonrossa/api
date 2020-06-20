@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+<link rel="stylesheet" type="text/css" href="sidebar.css">
+<body ng-app="myApp" ng-style="myStyle">
+
+
+    <div ng-controller="showhidectrl">
+
+        <div ng-view>
+        </div>
+       
+
+        <div class="sidenav" ng-controller="showhidectrl">
+            <a href="#!main" ng-click="isShowHide('show')">About</a>
+            <a href="#!user" ng-click="isShowHide('hide')">Users list</a>
+            <a href="#!usersForm" ng-click="isShowHide('hide')">New user</a>
+            <!-- <a href="#!usersView" ng-click="isShowHide('hide')">View new user</a> -->
+            <a href="#!editUser" ng-click="isShowHide('hide')">Edit user</a>
+            <a href="#!deleteUser" ng-click="isShowHide('hide')">Delete user</a>
+            <!-- <a href="#!userDetail" ng-click="isShowHide('hide')">Detail user</a> -->
+          </div>
+          
+    </div>
+
+    <script src="indexController.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,64 @@
+// api - users
+
+CREATE TABLE users (
+id SERIAL PRIMARY KEY,
+name varchar(50),
+initials varchar(25),
+eyecolor varchar(25),
+age int,
+guid varchar(25),
+email varchar(50)
+)
+
+
+//api - kitchen
+
+CREATE TABLE kitchen(
+id SERIAL PRIMARY KEY,
+manufacturer varchar(50),
+model varchar(50),
+colorid int,
+detailsid int,
+FOREIGN KEY (colorid) REFERENCES color(id),
+FOREIGN KEY (detailsid) REFERENCES details(id),
+picture varchar(50)
+)
+
+
+
+//new
+
+CREATE TABLE color(
+id SERIAL PRIMARY KEY,
+type varchar(100),
+kitchenid int
+)
+
+
+CREATE TABLE kitchen(
+id SERIAL PRIMARY KEY,
+manufacturer varchar(50),
+model varchar(50),
+picture varchar(50),
+description text
+)
+
+ALTER TABLE color
+ADD FOREIGN KEY (kitchenid) REFERENCES kitchen(id);
+
+INSERT INTO kitchen (manufacturer, model, picture, description) 
+VALUES ('Dan Kuchen','LaCorte','11.jpg','kuhinjske fronte  bijele boje FliederWeiß (mediapan, lak, visoki sjaj),
+jednobojna radna ploča crne Coro boje (iveral, mat),zidna obloga drveni dekor Altfichte 
+(iveral, melamin, mat)')
+
+INSERT INTO color(type, kitchenid) VALUES ('Beton', (SELECT id from kitchen where model='LaCorte'));
+INSERT INTO color(type, kitchenid) VALUES ('FliederWeiß', (SELECT id from kitchen where model='LaCorte'));
+INSERT INTO color(type, kitchenid) VALUES ('Cerros', (SELECT id from kitchen where model='LaCorte'));
+INSERT INTO color(type, kitchenid) VALUES ('Bergamo', (SELECT id from kitchen where model='LaCorte'));
+INSERT INTO color(type, kitchenid) VALUES ('WeißKristall', (SELECT id from kitchen where model='LaCorte'));
+
+
+
+
+
+

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+</head>
+
+<body ng-app="Index">
+    <div ng-controller="IndexList" ng-style="myBody">
+        <h1 ng-style="myStyle">List of pages</h1>
+
+    </div>
+
+    <div ng-controller="NamesController" ng-style="myBody">
+        <!-- Iphone -->
+
+        <p ng-repeat="phone in iphone">{{phone}} -
+            <a ng-href={{iphone2}}>
+                {{iphone2}}</a> </p>
+        <!-- Kitchen  -->
+
+        <p ng-repeat="kit in kitchen">{{kit}} -
+            <a ng-href={{kitchen2}}>
+                {{kitchen2}}</a> </p>
+
+        <!-- Users -->
+
+
+        <p ng-repeat="user in users">{{user}} -
+            <a ng-href={{users2}}>
+                {{users2}}</a> </p>
+
+        <!-- Test -->
+
+
+        <p ng-repeat="t in test">{{t}} -
+            <a ng-href={{test2}}>
+                {{test2}}</a> </p>
+    </div>
+
+
+    <script src="index.js"></script>
+</body>
+
+</html>
